@@ -1,0 +1,429 @@
+/* ==========================================
+   EXPENSE TRACKER
+   dark.css
+   Dark Mode Theme
+========================================== */
+
+/* ==========================================
+   BODY
+========================================== */
+
+body.dark{
+
+    background:#0f172a;
+
+    color:#f8fafc;
+
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+body.dark .header-left h1{
+
+    color:#60a5fa;
+
+}
+
+body.dark .header-left p{
+
+    color:#94a3b8;
+
+}
+
+body.dark .header-right button{
+
+    background:#1e293b;
+
+    color:#60a5fa;
+
+    box-shadow:none;
+
+}
+
+
+/* ==========================================
+   SUMMARY
+========================================== */
+
+body.dark .summary-card{
+
+    background:linear-gradient(
+        135deg,
+        #1d4ed8,
+        #2563eb
+    );
+
+}
+
+
+/* ==========================================
+   FILTERS
+========================================== */
+
+body.dark .filter{
+
+    background:#1e293b;
+
+    color:#e2e8f0;
+
+    box-shadow:none;
+
+}
+
+body.dark .filter.active{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+/* ==========================================
+   CARDS
+========================================== */
+
+body.dark .card{
+
+    background:#1e293b;
+
+    color:white;
+
+    box-shadow:none;
+
+}
+
+body.dark .card-title{
+
+    color:white;
+
+}
+
+body.dark .card-header h2{
+
+    color:white;
+
+}
+
+
+/* ==========================================
+   EXPENSE CARD
+========================================== */
+
+body.dark .expense-card{
+
+    background:#334155;
+
+    border:1px solid #475569;
+
+}
+
+body.dark .expense-card:hover{
+
+    box-shadow:0 12px 25px rgba(0,0,0,.35);
+
+}
+
+body.dark .expense-name{
+
+    color:white;
+
+}
+
+body.dark .expense-category,
+
+body.dark .expense-date{
+
+    color:#cbd5e1;
+
+}
+
+body.dark .expense-amount{
+
+    color:#4ade80;
+
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+body.dark .primary-btn{
+
+    background:#2563eb;
+
+}
+
+body.dark .secondary-btn{
+
+    background:#334155;
+
+    color:white;
+
+}
+
+body.dark .secondary-btn:hover{
+
+    background:#475569;
+
+}
+
+
+/* ==========================================
+   ICON BUTTONS
+========================================== */
+
+body.dark .icon-btn{
+
+    background:#334155;
+
+    color:#60a5fa;
+
+}
+
+body.dark .delete-btn{
+
+    color:#ef4444;
+
+}
+
+
+/* ==========================================
+   FLOATING BUTTON
+========================================== */
+
+body.dark #addExpenseBtn{
+
+    box-shadow:0 15px 35px rgba(37,99,235,.45);
+
+}
+
+
+/* ==========================================
+   BOTTOM SHEET
+========================================== */
+
+body.dark .bottom-sheet{
+
+    background:rgba(0,0,0,.65);
+
+}
+
+body.dark .sheet{
+
+    background:#1e293b;
+
+    color:white;
+
+}
+
+body.dark .sheet::before{
+
+    background:#64748b;
+
+}
+
+
+/* ==========================================
+   INPUTS
+========================================== */
+
+body.dark .sheet input,
+
+body.dark .sheet textarea,
+
+body.dark .sheet select,
+
+body.dark #searchInput{
+
+    background:#334155;
+
+    color:white;
+
+    border:2px solid #475569;
+
+}
+
+body.dark .sheet input::placeholder,
+
+body.dark .sheet textarea::placeholder{
+
+    color:#94a3b8;
+
+}
+
+body.dark .sheet input:focus,
+
+body.dark .sheet textarea:focus,
+
+body.dark .sheet select:focus,
+
+body.dark #searchInput:focus{
+
+    border-color:#60a5fa;
+
+    box-shadow:0 0 0 4px rgba(96,165,250,.15);
+
+}
+
+
+/* ==========================================
+   MODAL
+========================================== */
+
+body.dark .modal{
+
+    background:rgba(0,0,0,.7);
+
+}
+
+body.dark .modal-content{
+
+    background:#1e293b;
+
+    color:white;
+
+}
+
+
+/* ==========================================
+   TABLE
+========================================== */
+
+body.dark .table th{
+
+    background:#334155;
+
+}
+
+body.dark .table td{
+
+    border-color:#475569;
+
+}
+
+body.dark .table tr:hover{
+
+    background:#293548;
+
+}
+
+
+/* ==========================================
+   BADGES
+========================================== */
+
+body.dark .badge-success{
+
+    background:#14532d;
+
+    color:#86efac;
+
+}
+
+body.dark .badge-danger{
+
+    background:#7f1d1d;
+
+    color:#fca5a5;
+
+}
+
+body.dark .badge-warning{
+
+    background:#78350f;
+
+    color:#fcd34d;
+
+}
+
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+body.dark .empty,
+
+body.dark .empty-state{
+
+    color:#94a3b8;
+
+}
+
+body.dark .empty-state i{
+
+    color:#475569;
+
+}
+
+
+/* ==========================================
+   TOAST
+========================================== */
+
+body.dark #toast{
+
+    background:#334155;
+
+    color:white;
+
+}
+
+
+/* ==========================================
+   LOADER
+========================================== */
+
+body.dark #loader{
+
+    background:rgba(15,23,42,.85);
+
+}
+
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+body.dark ::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+body.dark ::-webkit-scrollbar-track{
+
+    background:#0f172a;
+
+}
+
+body.dark ::-webkit-scrollbar-thumb{
+
+    background:#475569;
+
+    border-radius:20px;
+
+}
+
+body.dark ::-webkit-scrollbar-thumb:hover{
+
+    background:#64748b;
+
+}
+
+
+/* ==========================================
+   SELECTION
+========================================== */
+
+body.dark ::selection{
+
+    background:#2563eb;
+
+    color:white;
+
+}

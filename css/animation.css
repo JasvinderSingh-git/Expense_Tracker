@@ -1,0 +1,578 @@
+/* ==========================================
+   EXPENSE TRACKER
+   animation.css
+   Animations & Effects
+========================================== */
+
+
+/* ==========================================
+   FADE IN
+========================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+/* ==========================================
+   SLIDE UP
+========================================== */
+
+@keyframes slideUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* ==========================================
+   SLIDE DOWN
+========================================== */
+
+@keyframes slideDown{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* ==========================================
+   SLIDE LEFT
+========================================== */
+
+@keyframes slideLeft{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+
+
+/* ==========================================
+   SLIDE RIGHT
+========================================== */
+
+@keyframes slideRight{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+
+
+/* ==========================================
+   SCALE IN
+========================================== */
+
+@keyframes scaleIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.9);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+/* ==========================================
+   BOUNCE
+========================================== */
+
+@keyframes bounce{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+}
+
+
+
+/* ==========================================
+   FLOAT
+========================================== */
+
+@keyframes floating{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* ==========================================
+   SPIN
+========================================== */
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+
+/* ==========================================
+   PULSE
+========================================== */
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+/* ==========================================
+   SHAKE
+========================================== */
+
+@keyframes shake{
+
+    0%{
+
+        transform:translateX(0);
+
+    }
+
+    25%{
+
+        transform:translateX(-5px);
+
+    }
+
+    50%{
+
+        transform:translateX(5px);
+
+    }
+
+    75%{
+
+        transform:translateX(-5px);
+
+    }
+
+    100%{
+
+        transform:translateX(0);
+
+    }
+
+}
+
+
+
+/* ==========================================
+   CARD ENTRANCE
+========================================== */
+
+.card{
+
+    animation:slideUp .5s ease;
+
+}
+
+
+
+/* ==========================================
+   SUMMARY CARD
+========================================== */
+
+.summary-card{
+
+    animation:scaleIn .5s ease;
+
+}
+
+
+
+/* ==========================================
+   EXPENSE CARD
+========================================== */
+
+.expense-card{
+
+    animation:fadeIn .35s ease;
+
+}
+
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.header{
+
+    animation:slideDown .5s ease;
+
+}
+
+
+
+/* ==========================================
+   FILTERS
+========================================== */
+
+.filters{
+
+    animation:slideRight .5s ease;
+
+}
+
+
+
+/* ==========================================
+   FLOATING BUTTON
+========================================== */
+
+#addExpenseBtn{
+
+    animation:floating 3s ease-in-out infinite;
+
+}
+
+
+
+/* ==========================================
+   BUTTON PRESS
+========================================== */
+
+button:active{
+
+    transform:scale(.96);
+
+}
+
+
+
+/* ==========================================
+   INPUT FOCUS
+========================================== */
+
+input:focus,
+
+select:focus,
+
+textarea:focus{
+
+    animation:pulse .25s;
+
+}
+
+
+
+/* ==========================================
+   TOAST
+========================================== */
+
+#toast.show{
+
+    animation:slideUp .3s ease;
+
+}
+
+
+
+/* ==========================================
+   LOADER
+========================================== */
+
+.spinner{
+
+    animation:spin 1s linear infinite;
+
+}
+
+
+
+/* ==========================================
+   RIPPLE
+========================================== */
+
+.ripple{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.ripple span{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    transform:scale(0);
+
+    animation:ripple .6s linear;
+
+    background:rgba(255,255,255,.5);
+
+}
+
+
+
+@keyframes ripple{
+
+    to{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+}
+
+
+
+/* ==========================================
+   HOVER EFFECTS
+========================================== */
+
+.hover-grow{
+
+    transition:.3s;
+
+}
+
+.hover-grow:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+
+.hover-lift{
+
+    transition:.3s;
+
+}
+
+.hover-lift:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+/* ==========================================
+   PAGE LOADING
+========================================== */
+
+body{
+
+    animation:fadeIn .6s ease;
+
+}
+
+
+
+/* ==========================================
+   MODAL
+========================================== */
+
+.modal.active .modal-content{
+
+    animation:scaleIn .3s ease;
+
+}
+
+
+
+/* ==========================================
+   BOTTOM SHEET
+========================================== */
+
+.bottom-sheet.active .sheet{
+
+    animation:slideUp .35s ease;
+
+}
+
+
+
+/* ==========================================
+   GRAPH ANIMATION
+========================================== */
+
+canvas{
+
+    animation:fadeIn .8s ease;
+
+}
+
+
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.empty-state{
+
+    animation:fadeIn .6s ease;
+
+}
+
+
+
+/* ==========================================
+   SUCCESS ANIMATION
+========================================== */
+
+.success{
+
+    animation:bounce .5s;
+
+}
+
+
+
+/* ==========================================
+   ERROR ANIMATION
+========================================== */
+
+.error{
+
+    animation:shake .35s;
+
+}
