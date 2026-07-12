@@ -1098,25 +1098,25 @@ function updateGreeting(){
 
     if(hour < 12){
 
-        greeting.textContent = "Good Morning ☀️";
+        greeting.innerHTML = "Good Morning,  <b>Jasvinder Singh</b> ☀️";
 
     }
 
     else if(hour < 17){
 
-        greeting.textContent = "Good Afternoon 🌤️";
+        greeting.innerHTML = "Good Afternoon,  <b>Jasvinder Singh</b> 🌤️";
 
     }
 
     else if(hour < 21){
 
-        greeting.textContent = "Good Evening 🌇";
+        greeting.innerHTML = "Good Evening,  <b>Jasvinder Singh</b> 🌇";
 
     }
 
     else{
 
-        greeting.textContent = "Good Night 🌙";
+        greeting.innerHTML = "Good Night,  <b>Jasvinder Singh</b> 🌙";
 
     }
 
