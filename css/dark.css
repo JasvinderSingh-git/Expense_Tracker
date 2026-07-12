@@ -221,6 +221,10 @@ body.dark .sheet{
 
 }
 
+body.dark .sheet h2 {
+    color: white;
+}
+
 body.dark .sheet::before{
 
     background:#64748b;
