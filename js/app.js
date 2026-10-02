@@ -49,26 +49,72 @@
 // }
 
 
+// if ("serviceWorker" in navigator) {
+//     window.addEventListener("load", () => {
+//         navigator.serviceWorker.register("/service-worker.js")
+//         .then(registration => {
+//             console.log("Service Worker Registered");
+
+//             // Check for updates every time the page loads
+//             registration.update();
+
+//             // SITUATION A: A new update is already downloaded and waiting in the background
+//             if (registration.waiting) {
+//                 showUpdateBanner(registration.waiting);
+//             }
+
+//             // SITUATION B: A new update is found downloading right now
+//             registration.addEventListener('updatefound', () => {
+//                 const newWorker = registration.installing;
+//                 newWorker.addEventListener('statechange', () => {
+//                     // CRITICAL FIX: Only show the banner if it finished installing 
+//                     // AND there is an old worker already controlling the page (navigator.serviceWorker.controller)
+//                     if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+//                         showUpdateBanner(newWorker);
+//                     }
+//                 });
+//             });
+//         })
+//         .catch(error => console.error("Service Worker Failed", error));
+//     });
+
+//     // 🔄 This only triggers AFTER the user clicks the button and skipWaiting() completes
+//     let refreshing = false;
+//     navigator.serviceWorker.addEventListener('controllerchange', () => {
+//         if (!refreshing) {
+//             window.location.reload();
+//             refreshing = true;
+//         }
+//     });
+// }
+
+
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/service-worker.js")
+        
+        // 🚀 THE FIX: Dynamically handle the folder path for GitHub Pages & Localhost
+        const repoName = window.location.pathname.split('/')[1];
+        const swPath = window.location.hostname.includes('github.io') 
+            ? `/${repoName}/service-worker.js` 
+            : '/service-worker.js';
+
+        navigator.serviceWorker.register(swPath)
         .then(registration => {
             console.log("Service Worker Registered");
-
-            // Check for updates every time the page loads
+            
+            // Force check the server for an updated service-worker.js file
             registration.update();
 
-            // SITUATION A: A new update is already downloaded and waiting in the background
+            // If a new worker is already waiting in the background, show the banner
             if (registration.waiting) {
                 showUpdateBanner(registration.waiting);
             }
 
-            // SITUATION B: A new update is found downloading right now
+            // If a new worker is found downloading, watch it until it's ready
             registration.addEventListener('updatefound', () => {
                 const newWorker = registration.installing;
                 newWorker.addEventListener('statechange', () => {
-                    // CRITICAL FIX: Only show the banner if it finished installing 
-                    // AND there is an old worker already controlling the page (navigator.serviceWorker.controller)
+                    // Only show the banner if it finished installing AND there is an old worker
                     if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
                         showUpdateBanner(newWorker);
                     }
@@ -78,7 +124,7 @@ if ("serviceWorker" in navigator) {
         .catch(error => console.error("Service Worker Failed", error));
     });
 
-    // 🔄 This only triggers AFTER the user clicks the button and skipWaiting() completes
+    // Auto-reload the tab once the new service worker officially takes over
     let refreshing = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
         if (!refreshing) {
@@ -87,6 +133,7 @@ if ("serviceWorker" in navigator) {
         }
     });
 }
+
 
 // Function to handle the banner display and click logic
 function showUpdateBanner(worker) {
