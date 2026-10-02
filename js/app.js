@@ -5,7 +5,7 @@ if ("serviceWorker" in navigator) {
             console.log("Service Worker Registered");
 
             // Force check the server for an updated service-worker.js file
-            registration.update();
+            // registration.update();
 
             // If a new worker is already waiting in the background, show the banner
             if (registration.waiting) {

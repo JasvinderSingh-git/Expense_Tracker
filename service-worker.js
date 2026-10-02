@@ -4,31 +4,33 @@
    Version 1.0
 ========================================== */
 
-const CACHE_NAME = "expense-tracker-v9";
+const CACHE_NAME = "expense-tracker-v8";
 
 const FILES_TO_CACHE = [
 
     "/",
-    "index.html",
-    "manifest.json",
+    "/index.html",
+    "/manifest.json",
 
-    "css/style.css",
-    "css/dark.css",
-    "css/animation.css",
+    "/css/style.css",
+    "/css/dark.css",
+    "/css/animation.css",
 
-    "js/app.js",
+    "/js/app.js",
 
-    "js/utils.js",
-    "js/storage.js",
-    "js/theme.js",
-    "js/chart.js",
-    "js/filter.js",
-    "js/export.js",
-    "js/expense.js",
+    "/js/utils.js",
+    "/js/storage.js",
+    "/js/theme.js",
+    "/js/chart.js",
+    "/js/filter.js",
+    "/js/export.js",
+    "/js/expense.js",
 
-    "assets/images/favicon.png",
-    "assets/images/app-icon-192.png",
-    "assets/images/app-icon-512.png"
+    "/assets/images/app-icon-192.png",
+
+    // "/assets/images/favicon.png",
+
+    // "/assets/images/app-icon-512.png"
 
 ];
 
@@ -94,6 +96,8 @@ self.addEventListener("activate", event => {
 ========================================== */
 
 self.addEventListener("fetch", event => {
+
+    if (!event.request.url.startsWith('http')) return; 
 
     event.respondWith(
 
