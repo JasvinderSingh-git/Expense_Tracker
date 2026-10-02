@@ -173,7 +173,7 @@
    Version 1.0
 ========================================== */
 
-const CACHE_NAME = "expense-tracker-v9";
+const CACHE_NAME = "expense-tracker-v6";
 
 // 🚀 DYNAMIC ROUTING FIX: Automatically pre-pends your GitHub repository name if online
 const IS_GITHUB = self.location.hostname.includes('github.io');
