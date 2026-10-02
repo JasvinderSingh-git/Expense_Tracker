@@ -89,32 +89,112 @@
 // }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// if ("serviceWorker" in navigator) {
+//     window.addEventListener("load", () => {
+        
+//         // 🚀 THE FIX: Dynamically handle the folder path for GitHub Pages & Localhost
+//         const repoName = window.location.pathname.split('/')[1];
+//         const swPath = window.location.hostname.includes('github.io') 
+//             ? `/${repoName}/service-worker.js` 
+//             : '/service-worker.js';
+
+//         navigator.serviceWorker.register(swPath)
+//         .then(registration => {
+//             console.log("Service Worker Registered");
+            
+//             // Force check the server for an updated service-worker.js file
+//             registration.update();
+
+//             // If a new worker is already waiting in the background, show the banner
+//             if (registration.waiting) {
+//                 showUpdateBanner(registration.waiting);
+//             }
+
+//             // If a new worker is found downloading, watch it until it's ready
+//             registration.addEventListener('updatefound', () => {
+//                 const newWorker = registration.installing;
+//                 newWorker.addEventListener('statechange', () => {
+//                     // Only show the banner if it finished installing AND there is an old worker
+//                     if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+//                         showUpdateBanner(newWorker);
+//                     }
+//                 });
+//             });
+//         })
+//         .catch(error => console.error("Service Worker Failed", error));
+//     });
+
+//     // Auto-reload the tab once the new service worker officially takes over
+//     let refreshing = false;
+//     navigator.serviceWorker.addEventListener('controllerchange', () => {
+//         if (!refreshing) {
+//             window.location.reload();
+//             refreshing = true;
+//         }
+//     });
+// }
+
+
+// // Function to handle the banner display and click logic
+// function showUpdateBanner(worker) {
+//     const banner = document.getElementById('update-banner');
+//     const reloadBtn = document.getElementById('reload-btn');
+    
+//     if (banner) banner.style.display = 'flex'; // Show banner
+    
+//     if (reloadBtn) {
+//         // Clear any previous click listeners to avoid bugs
+//         reloadBtn.onclick = null; 
+        
+//         // 🛑 The page will ONLY refresh when this click event happens!
+//         reloadBtn.onclick = () => {
+//             worker.postMessage({ action: 'skipWaiting' });
+//         };
+//     }
+// }
+
+
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
         
-        // 🚀 THE FIX: Dynamically handle the folder path for GitHub Pages & Localhost
-        const repoName = window.location.pathname.split('/')[1];
-        const swPath = window.location.hostname.includes('github.io') 
-            ? `/${repoName}/service-worker.js` 
-            : '/service-worker.js';
+        // 🚀 SAFE PATH GENERATOR FOR GITHUB PAGES & LOCALHOST
+        let swPath = '/service-worker.js';
+        if (window.location.hostname.includes('github.io')) {
+            // Extracts "Expense_Tracker" correctly from your URL path
+            const pathSegments = window.location.pathname.split('/').filter(Boolean);
+            const repoName = pathSegments[0] || 'Expense_Tracker';
+            swPath = `/${repoName}/service-worker.js`;
+        }
 
         navigator.serviceWorker.register(swPath)
         .then(registration => {
             console.log("Service Worker Registered");
             
-            // Force check the server for an updated service-worker.js file
+            // Checks for updates correctly using the verified registration
             registration.update();
 
-            // If a new worker is already waiting in the background, show the banner
             if (registration.waiting) {
                 showUpdateBanner(registration.waiting);
             }
 
-            // If a new worker is found downloading, watch it until it's ready
             registration.addEventListener('updatefound', () => {
                 const newWorker = registration.installing;
                 newWorker.addEventListener('statechange', () => {
-                    // Only show the banner if it finished installing AND there is an old worker
                     if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
                         showUpdateBanner(newWorker);
                     }
@@ -124,7 +204,6 @@ if ("serviceWorker" in navigator) {
         .catch(error => console.error("Service Worker Failed", error));
     });
 
-    // Auto-reload the tab once the new service worker officially takes over
     let refreshing = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
         if (!refreshing) {
@@ -134,19 +213,13 @@ if ("serviceWorker" in navigator) {
     });
 }
 
-
-// Function to handle the banner display and click logic
 function showUpdateBanner(worker) {
     const banner = document.getElementById('update-banner');
     const reloadBtn = document.getElementById('reload-btn');
     
-    if (banner) banner.style.display = 'flex'; // Show banner
-    
+    if (banner) banner.style.display = 'flex';
     if (reloadBtn) {
-        // Clear any previous click listeners to avoid bugs
-        reloadBtn.onclick = null; 
-        
-        // 🛑 The page will ONLY refresh when this click event happens!
+        reloadBtn.onclick = null;
         reloadBtn.onclick = () => {
             worker.postMessage({ action: 'skipWaiting' });
         };
