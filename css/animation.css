@@ -199,7 +199,8 @@
 /* ==========================================
    HEADER
 ========================================== */
-.header{
+.header,
+#update-banner {
     animation:slideDown .5s ease;
 }
 
