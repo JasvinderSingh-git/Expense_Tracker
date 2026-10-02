@@ -79,17 +79,11 @@ self.addEventListener("activate", event => {
                         return caches.delete(key);
 
                     }
-
                 })
-
             );
-
         })
-
     );
-
     self.clients.claim();
-
 });
 
 
@@ -142,19 +136,12 @@ self.addEventListener("fetch", event => {
                         event.request,
 
                         responseClone
-
                     );
-
                 });
-
                 return networkResponse;
-
             });
-
         })
-
     );
-
 });
 
 
