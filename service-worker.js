@@ -4,7 +4,7 @@
    Version 1.0
 ========================================== */
 
-const CACHE_NAME = "expense-tracker-v4";
+const CACHE_NAME = "expense-tracker-v7";
 
 const FILES_TO_CACHE = [
 
