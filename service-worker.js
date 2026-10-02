@@ -4,7 +4,7 @@
    Version 1.0
 ========================================== */
 
-const CACHE_NAME = "expense-tracker-v1";
+const CACHE_NAME = "expense-tracker-v3";
 
 const FILES_TO_CACHE = [
 
@@ -15,6 +15,8 @@ const FILES_TO_CACHE = [
     "css/style.css",
     "css/dark.css",
     "css/animation.css",
+
+    "js/app.js",
 
     "js/utils.js",
     "js/storage.js",
@@ -157,4 +159,11 @@ self.addEventListener("message", event => {
 
     }
 
+});
+
+// Listen for messages from the main application
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.action === 'skipWaiting') {
+    self.skipWaiting(); // Forces the waiting service worker to become active
+  }
 });
